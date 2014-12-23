@@ -141,6 +141,7 @@ def do_POST(data):
     files = xpackage['xqueue_files']
 
     # Delivery from the lms
+    files = files and json.loads(files) or {}
     body = json.loads(body)
     student_response = body['student_response']
     payload = body['grader_payload']

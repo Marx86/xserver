@@ -158,7 +158,8 @@ def do_POST(data):
     relative_grader_path = grader_config['grader']
     grader_path = os.path.join(settings.GRADER_ROOT, relative_grader_path)
     start = time()
-    results = grade.grade(grader_path, grader_config, student_response, sandbox)
+    results = grade.grade(grader_path, grader_config,
+                          student_response, sandbox, files)
 
     statsd.histogram('xserver.grading-time', time() - start)
 
